@@ -1,5 +1,5 @@
 from twitter import Twitter, OAuth
-from pytools import pload
+import pickle
 from authcred import token, token_secret
 from authcred import consumer_key, consumer_secret
 import sys
@@ -28,7 +28,7 @@ def make_message(info):
     else:
         mess += u"Not normal low timing \U0001F6AB \n"
     if diurnal == 1:
-        mess += "WARNING: maybe 6z low\n"
+        mess += u"WARNING: maybe 6z low\n"
 
     return mess
 
@@ -42,7 +42,7 @@ if __name__=='__main__':
                                  consumer_key=consumer_key,
                                  consumer_secret=consumer_secret))
 
-    info = pload(os.path.expanduser('~/weatherbot/'+tag+'.fc'))
+    info = pickle.load(os.path.expanduser('~/weatherbot/'+tag+'.fc'))
 
     mess = make_message(info)
 
