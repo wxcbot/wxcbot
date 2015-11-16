@@ -2,7 +2,6 @@ from twitter import Twitter, OAuth
 import pickle
 from authcred import token, token_secret
 from authcred import consumer_key, consumer_secret
-import sys
 import os
 
 def get_emoji(score):
