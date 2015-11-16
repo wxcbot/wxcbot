@@ -18,7 +18,7 @@ def get_emoji(score):
 def make_message(info):
     hmoji = get_emoji(info['hconf'])
     lmoji = get_emoji(info['lconf'])
-    mess = " %s %s\n"%(info['station'],info['fctime'])
+    mess = " %s valid: %s\n"%(info['station'],info['fctime'])
     mess += "High: %d +/- %d "%(info['high'],info['hstd'])
     mess += hmoji
     diurnal = info['diurnal']
@@ -42,7 +42,8 @@ if __name__=='__main__':
                                  consumer_key=consumer_key,
                                  consumer_secret=consumer_secret))
 
-    info = pickle.load(os.path.expanduser('~/wxcbot/'+tag+'.fc'))
+    with open(os.path.expanduser('~/wxcbot/'+tag+'.fc'), 'r') as f:
+        info = pickle.load(f)
 
     mess = make_message(info)
 
