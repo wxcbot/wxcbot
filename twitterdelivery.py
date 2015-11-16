@@ -42,7 +42,7 @@ if __name__=='__main__':
                                  consumer_key=consumer_key,
                                  consumer_secret=consumer_secret))
 
-    info = pickle.load(os.path.expanduser('~/weatherbot/'+tag+'.fc'))
+    info = pickle.load(os.path.expanduser('~/wxcbot/'+tag+'.fc'))
 
     mess = make_message(info)
 
