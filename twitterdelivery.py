@@ -18,8 +18,16 @@ def make_message(info):
     hmoji = get_emoji(info['hconf'])
     lmoji = get_emoji(info['lconf'])
     mess = " %s valid: %s\n"%(info['station'],info['fctime'])
-    mess += "High: %d +/- %d "%(info['high'],info['hstd'])
-    mess += hmoji
+
+    diurnal_high = info['diurnal_high']
+    if diurnal_high > 0:
+        mess += "High: %d +/- %d "%(info['high'],info['hstd'])
+        mess += hmoji
+    else:
+        mess += u"Not normal high timing \U0001F6AB \n"
+    if diurnal_high == 1:
+        mess += u"WARNING: maybe 6z low\n"
+
     diurnal = info['diurnal']
     if diurnal > 0:
         mess += "Low: %d +/- %d"%(info['low'],info['lstd'])
