@@ -26,7 +26,7 @@ def make_message(info):
     else:
         mess += u"Not normal high timing \U0001F6AB \n"
     if diurnal_high == 1:
-        mess += u"WARNING: maybe 6z low\n"
+        mess += u"WARNING: maybe 6z high\n"
 
     diurnal = info['diurnal']
     if diurnal > 0:
