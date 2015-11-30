@@ -5,12 +5,11 @@ from authcred import consumer_key, consumer_secret
 import os
 
 def get_emoji(score):
-    if score >= 10:
+    if score >= 5:
         return u'\U0001F4AF \n'
-    elif score >= 5:
-        return u'\U0001F525 \n'
     elif score >= 1:
-        return u'\U0001F610 \n'
+        return u'\U0001F525 \n'
+    elif score >= 0.1:        return u'\U0001F610 \n'
     else:
         return u'\U0001F6AB \n'
 
