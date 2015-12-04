@@ -20,7 +20,7 @@ def make_message(info):
 
     diurnal_high = info['diurnal_high']
     if diurnal_high > 0:
-        mess += "High: %d +/- %d "%(info['high'],info['hstd'])
+        mess += "High: %d +/- %d "%(round(info['high']),round(info['hstd']))
         mess += hmoji
     else:
         mess += u"Not normal high timing \U0001F6AB \n"
@@ -29,7 +29,7 @@ def make_message(info):
 
     diurnal = info['diurnal']
     if diurnal > 0:
-        mess += "Low: %d +/- %d"%(info['low'],info['lstd'])
+        mess += "Low: %d +/- %d"%(round(info['low']),round(info['lstd']))
         mess += lmoji
     else:
         mess += u"Not normal low timing \U0001F6AB \n"
